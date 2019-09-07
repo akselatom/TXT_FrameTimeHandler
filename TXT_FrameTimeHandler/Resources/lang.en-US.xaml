@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Main window -->
+    <v:String x:Key="MenuLanguage">Language</v:String>
+    <v:String x:Key="BrowseButtonText">Browse</v:String>
+    <v:String x:Key="SaveButtonText">Save</v:String>
+    <v:String x:Key="WriteButtonText">Write</v:String>
+    <v:String x:Key="TestNameField">Test name:</v:String>
+    <v:String x:Key="FrameTimeGraphField">Frame timing graph</v:String>
+    <v:String x:Key="LogFilePathField">Log file path</v:String>
+    <v:String x:Key="SaveAsTxtField">Save as txt</v:String>
+    <v:String x:Key="ProbabilityDistributionGraph">Probability distribution graph</v:String>
+    <v:String x:Key="ProbabilityDensityGraph">Probability density graph</v:String>
+    <v:String x:Key="SaveInCurrentGraphFile">Save in current graph file</v:String>
+
+</ResourceDictionary>

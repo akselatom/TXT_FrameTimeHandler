@@ -15,6 +15,8 @@ using TXT_FrameTimeHandler.DataProcessing.Fraps;
 
 namespace TXT_FrameTimeHandler.ViewModels
 {
+    using System.Threading;
+
     public class StartViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -118,7 +120,6 @@ namespace TXT_FrameTimeHandler.ViewModels
                 this.OnPropertyChanged("ResultFramesData");
             }
         }
-
         public ClassicCommand SelectLogFilePathCommand { get; }
         public ClassicCommand SelectFrameTimingGraphFilePathCommand { get; }
         public ClassicCommand SelectProbabilityDensityGraphFilePathCommand { get; }
