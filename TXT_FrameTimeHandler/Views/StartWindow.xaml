@@ -6,7 +6,7 @@
         xmlns:viewmodels="clr-namespace:TXT_FrameTimeHandler.ViewModels"
         x:Class="TXT_FrameTimeHandler.MainWindow"
         mc:Ignorable="d"
-        Title="TXT_FrameTimeHandler" Height="482" Width="1000" MinHeight="470" MinWidth="800"
+        Title="TXT_FrameTimeHandler" Height="519" Width="1000" MinHeight="470" MinWidth="800"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -33,12 +33,13 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
-                <ColumnDefinition x:Name="TestNameColumn"/>
+                <ColumnDefinition x:Name="TestNameColumn" Width="751*"/>
+                <ColumnDefinition Width="100*"/>
             </Grid.ColumnDefinitions>
             <TextBlock  Text="{DynamicResource TestNameField}" FontSize="20"/>
             <TextBox MinWidth="100" FontSize="20" Text="{Binding ReportName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" TextAlignment="Left" HorizontalAlignment="Left"/>
 
-            <Grid HorizontalAlignment="Right" Grid.Column="1" VerticalAlignment="Center" Visibility="{Binding ResultFramesData.HasValue, Converter={StaticResource BoolToVisConverter}}">
+            <Grid HorizontalAlignment="Right" Grid.Column="2" VerticalAlignment="Center" Visibility="{Binding ResultFramesData.HasValue, Converter={StaticResource BoolToVisConverter}}" Margin="0,15">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="20"/>
@@ -73,8 +74,8 @@
                     <TextBlock Grid.Column="1" FontSize="16" Text="{Binding ResultFramesData.Value.AvgFPS, TargetNullValue=false}"/>
                 </Grid>
             </Grid>
-            <Menu Background="{x:Null}" Grid.ColumnSpan="2" Margin="0,-14,0,28" HorizontalAlignment="Left" Width="517">
-                <MenuItem x:Name="menuLanguage" Header="{DynamicResource MenuLanguage}"/>
+            <Menu Background="{x:Null}" HorizontalAlignment="Left" Grid.Column="2" Height="30" VerticalAlignment="Top">
+                <MenuItem x:Name="menuLanguage" Header="{DynamicResource MenuLanguage}" Height="30" Width="62" RenderTransformOrigin="1.185,0.429" MinWidth="60" MinHeight="30"/>
             </Menu>
         </Grid>
 
@@ -207,6 +208,48 @@
                 <TextBox IsReadOnly="True" Height="30" FontSize="16" Text="{Binding ProbabilityDistributionGraphFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" Grid.ColumnSpan="3" Margin="0,2,0,1"/>
                 <Button Grid.Column="3" Margin="5" Content="{DynamicResource BrowseButtonText}" Command="{Binding SelectProbabilityDistributionGraphFilePathCommand}"/>
                 <Button Grid.Column="4" Margin="5" Content="{DynamicResource WriteButtonText}" Command="{Binding WriteProbabilityDistributionGraphCommand}"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="8" Margin="0,0,-10,0" Height="20" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition x:Name="TestNameColumn2"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid HorizontalAlignment="Right" Grid.Column="1" VerticalAlignment="Center" Visibility="{Binding ResultFramesData.HasValue, Converter={StaticResource BoolToVisConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Low 0.1% fps:" FontSize="16"/>
+                    <TextBlock Grid.Column="1" FontSize="16" Text="{Binding ResultFramesData.Value.OneTenthPercentFPS, TargetNullValue=false}"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Low 1% fps:" FontSize="16"/>
+                    <TextBlock Grid.Column="1" FontSize="16" Text="{Binding ResultFramesData.Value.OnePercentFps, TargetNullValue=false}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="65"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="AVG fps:" FontSize="16"/>
+                    <TextBlock Grid.Column="1" FontSize="16" Text="{Binding ResultFramesData.Value.AvgFPS, TargetNullValue=false}"/>
+                </Grid>
             </Grid>
         </Grid>
 

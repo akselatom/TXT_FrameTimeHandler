@@ -46,15 +46,15 @@ namespace TXT_FrameTimeHandler
         /// </summary>
         public static CultureInfo Language
         {
-            get => Thread.CurrentThread.CurrentUICulture;
+            get => Thread.CurrentThread.CurrentCulture;
 
             set
             {
                 if (value == null) throw new ArgumentNullException("value");
-                if (value == Thread.CurrentThread.CurrentUICulture) return;
+                if (value == Thread.CurrentThread.CurrentCulture) return;
 
                 // Change application language.
-                Thread.CurrentThread.CurrentUICulture = value;
+                Thread.CurrentThread.CurrentCulture = value;
 
                 // Create new ResourceDictionary for new culture.
                 var dict = new ResourceDictionary();
