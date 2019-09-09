@@ -17,6 +17,7 @@
         {
             this.InitializeComponent();
             App.LanguageChanged += this.LanguageChanged;
+            App.Language = Properties.Settings.Default.DefaultLanguage;
             this.FillMenuItem();
         }
 
@@ -57,7 +58,11 @@
             if (mi?.Tag is CultureInfo lang)
             {
                 App.Language = lang;
+                Properties.Settings.Default.DefaultLanguage = App.Language;
+                Properties.Settings.Default.Save();
             }
         }
+
+
     }
 }

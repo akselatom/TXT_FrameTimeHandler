@@ -88,6 +88,5 @@ namespace TXT_FrameTimeHandler
                 LanguageChanged(Application.Current, new EventArgs());
             }
         }
-
     }
 }
